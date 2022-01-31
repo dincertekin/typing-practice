@@ -36,6 +36,10 @@ input[type="text"] {
 	margin-top: 10px;
 }
 
+.wrongs {
+	display: none;
+}
+
 @media screen and (max-width: 600px) {
 	.box {
 		width: 60%;
