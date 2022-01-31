@@ -13,7 +13,7 @@ for (let i = 0; i < 10; i++) {
 	}
 	randomWords.push(word);
 }
-console.log(randomWords);
+// console.log(randomWords);
 
 document.getElementsByClassName("text")[0].innerHTML = randomWords.toString().replaceAll(",", " ");
 
@@ -23,7 +23,7 @@ inputText.addEventListener("keydown", function(event) {
 	if (event.keyCode === 32) {
 		event.preventDefault();
 		if (inputText.value == randomWords[0]) {
-			alert('DOĞRU!');
+			// alert('DOĞRU!');
 			inputText.value = "";
 			randomWords.shift();
 			randomWords.push(wordsArray[randomInt(0, wordsArray.length)]);
@@ -31,14 +31,17 @@ inputText.addEventListener("keydown", function(event) {
 			trueWord++;
 			document.getElementsByClassName("true")[0].innerHTML = "Doğru: <b>" + trueWord + "</b>";
 		} else {
-			alert('YANLIŞ!');
+			// alert('YANLIŞ!');
 			if (trueWord != 0) {
 				trueWord--;
 				document.getElementsByClassName("true")[0].innerHTML = "Doğru: <b>" + trueWord + "</b>";
 			}   
 			falseWord++;
 			document.getElementsByClassName("false")[0].innerHTML = "Yanlış: <b>" + falseWord + "</b>";
-			wrongWords.push(randomWords.shift());
+			let wrongWord = randomWords.shift();
+			if (!wrongWords.includes(wrongWord)) {
+				wrongWords.push(wrongWord);
+			}
 			randomWords.push(wordsArray[randomInt(0, wordsArray.length)]);
 			document.getElementsByClassName("text")[0].innerHTML = randomWords.toString().replaceAll(",", " ");
 			inputText.value = "";
@@ -55,12 +58,14 @@ function startTimer() {
 			if (seconds == 0) {
 				clearInterval(timer);
 				timer = null;
-				wrongWords = [];
 				seconds = 60;
-				alert("SÜRE DOLDU!");
+				// alert("SÜRE DOLDU!");
 				document.getElementsByClassName("time")[0].innerHTML = "0:59";
 				document.getElementsByClassName("wrongs")[0].style.display = "block";
 				document.getElementsByClassName("wrongs")[0].innerHTML = "Hatalı Kelimeler: " + wrongWords.toString().replaceAll(",", ", ");
+				wrongWords = [];
+				trueWord = 0;
+				falseWord = 0;
 				return;
 			} else {
 				seconds -= 1;
