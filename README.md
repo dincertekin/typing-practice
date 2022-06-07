@@ -1,2 +1,2 @@
 # typing-practice-v2
-Tertemiz Javascript, HTML, CSS ile kodlanmış hızlı yazma testi oyunudur. İlk sürümde metin yazdırıyorduk. Artık lowercase kelime yazdırıyoruz. Doğru ve yanlışı saydırıyoruz. Ayrıca timer'ımız bile var! :) Hemen sitenize kurup test edebilirsiniz. ÖNEMLİ NOT: CSS dosyası bomboştur, stilleri yani tasarımı size bıraktım.
+It is a fast typing test game coded with pure Javascript, HTML, CSS. In the first version we were writing text. Now we write lowercase English words. We count right and wrong words. We even have a timer! :) You can install and test it on your site right away. IMPORTANT NOTE: The CSS file is empty, I left the styles, namely the design, to you.
