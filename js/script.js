@@ -13,7 +13,6 @@ for (let i = 0; i < 10; i++) {
 	}
 	randomWords.push(word);
 }
-// console.log(randomWords);
 
 document.getElementsByClassName("text")[0].innerHTML = randomWords.toString().replaceAll(",", " ");
 
@@ -23,7 +22,6 @@ inputText.addEventListener("keydown", function(event) {
 	if (event.keyCode === 32) {
 		event.preventDefault();
 		if (inputText.value == randomWords[0]) {
-			// alert('DOĞRU!');
 			inputText.value = "";
 			randomWords.shift();
 			randomWords.push(wordsArray[randomInt(0, wordsArray.length)]);
@@ -31,7 +29,6 @@ inputText.addEventListener("keydown", function(event) {
 			trueWord++;
 			document.getElementsByClassName("true")[0].innerHTML = "Doğru: <b>" + trueWord + "</b>";
 		} else {
-			// alert('YANLIŞ!');
 			if (trueWord != 0) {
 				trueWord--;
 				document.getElementsByClassName("true")[0].innerHTML = "Doğru: <b>" + trueWord + "</b>";
@@ -59,7 +56,6 @@ function startTimer() {
 				clearInterval(timer);
 				timer = null;
 				seconds = 60;
-				// alert("SÜRE DOLDU!");
 				document.getElementsByClassName("time")[0].innerHTML = "0:59";
 				document.getElementsByClassName("wrongs")[0].style.display = "block";
 				document.getElementsByClassName("wrongs")[0].innerHTML = "Hatalı Kelimeler: " + wrongWords.toString().replaceAll(",", ", ");
