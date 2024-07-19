@@ -27,14 +27,14 @@ inputText.addEventListener("keydown", function(event) {
 			randomWords.push(wordsArray[randomInt(0, wordsArray.length)]);
 			document.getElementsByClassName("text")[0].innerHTML = randomWords.toString().replaceAll(",", " ");
 			trueWord++;
-			document.getElementsByClassName("true")[0].innerHTML = "Doğru: <b>" + trueWord + "</b>";
+			document.getElementsByClassName("true")[0].innerHTML = "Correct: <b>" + trueWord + "</b>";
 		} else {
 			if (trueWord != 0) {
 				trueWord--;
-				document.getElementsByClassName("true")[0].innerHTML = "Doğru: <b>" + trueWord + "</b>";
+				document.getElementsByClassName("true")[0].innerHTML = "Correct: <b>" + trueWord + "</b>";
 			}   
 			falseWord++;
-			document.getElementsByClassName("false")[0].innerHTML = "Yanlış: <b>" + falseWord + "</b>";
+			document.getElementsByClassName("false")[0].innerHTML = "Incorrect: <b>" + falseWord + "</b>";
 			let wrongWord = randomWords.shift();
 			if (!wrongWords.includes(wrongWord)) {
 				wrongWords.push(wrongWord);
@@ -58,7 +58,7 @@ function startTimer() {
 				seconds = 60;
 				document.getElementsByClassName("time")[0].innerHTML = "0:59";
 				document.getElementsByClassName("wrongs")[0].style.display = "block";
-				document.getElementsByClassName("wrongs")[0].innerHTML = "Hatalı Kelimeler: " + wrongWords.toString().replaceAll(",", ", ");
+				document.getElementsByClassName("wrongs")[0].innerHTML = "Incorrect Words: " + wrongWords.toString().replaceAll(",", ", ");
 				wrongWords = [];
 				trueWord = 0;
 				falseWord = 0;
